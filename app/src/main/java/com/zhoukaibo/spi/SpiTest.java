@@ -1,11 +1,11 @@
 package com.zhoukaibo.spi;
 
+import java.util.Iterator;
 import java.util.ServiceLoader;
 
 /**
  * SPI Demo.
  *
- * Author: [Kaibo](https://zhoukaibo.com)
  */
 public class SpiTest {
 
@@ -15,7 +15,9 @@ public class SpiTest {
 		int numberA = 6;
 		int numberB = 3;
 		System.out.println("NumberA: " + numberA + ", NumberB: " + numberB);
-		for (IOperation operation : operations) {
+		Iterator<IOperation> iterator = operations.iterator();
+		while (iterator.hasNext()) {
+			IOperation operation = iterator.next();
 			System.out.println(operation.operation(numberA, numberB));
 		}
 	}
